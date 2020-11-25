@@ -1,0 +1,56 @@
+# Go Tool: Counterfeiter
+
+@MarioCarrion
+https://mariocarrion.com
+
+: Greet the audience and short intro about myself
+
+## Requirements
+
+* Go 1.15 and some programming experience
+* Understanding of testing in Go
+* Basic understanding of Go Modules
+
+: You already built something in Go, you tested it and ideally you are already using Go modules
+
+## What is counterfeiter?
+
+_[github.com/maxbrunsfeld/counterfeiter](https://github.com/maxbrunsfeld/counterfeiter) says_:
+
+>> _A tool for generating self-contained, type-safe test doubles in go._
+
+* OpenSource and MIT-licensed.
+
+: Important keywords "generating", "self-contained" "type-safe" "test-doubles"
+: "go generate" command is heavily used: https://blog.golang.org/generate
+
+## Test doubles?
+
+* 2006: [Gerard Meszaros](http://xunitpatterns.com/Test%20Double.html) / [Martin Fowler](https://martinfowler.com/bliki/TestDouble.html)
+
+Yes, test doubles are:
+
+* **Dummies**
+* **Fakes**
+* **Stubs**
+* **Spies**
+* **Mocks**
+
+: Dummy: objects passed around, but never used.
+: Fake: working implementations but not suitable for production, ie in-memory datastore.
+: Stubs: provide canned answers made during the test.
+: Spies: stubs that also record details based on how they were called.
+: Mocks: objects pre-programed with expections with form the specification of the calls they are expected to receive.
+
+## Alternatives?
+
+* [github.com/golang/mock](https://github.com/golang/mock)
+* [github.com/gojuno/minimock](https://github.com/gojuno/minimock)
+* [github.com/stretchr/testify](https://github.com/stretchr/testify#mock-package)'s mock-package
+
+: All of them provide a way to generate code via the "go generate" command.
+: Most of them use Given/When/Then style but there's also the option to explicitly set the results programmatically.
+
+## Demo
+
+Yehey!
