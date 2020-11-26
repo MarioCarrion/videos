@@ -1,6 +1,6 @@
 # Go Tool: counterfeiter
 
-[Published Video](https://youtu.be/_PknBwO9jc0)
+[Published Video](https://youtu.be/ENqwq64TsDk)
 
 1. Install [`direnv`](https://github.com/direnv/direnv)
 1. Then:
