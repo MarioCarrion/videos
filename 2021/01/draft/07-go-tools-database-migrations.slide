@@ -1,0 +1,63 @@
+# Go Tools
+
+For database schema migrations
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+: Greet the audience and short intro about myself
+
+## Requirements
+
+* Go 1.15 and some programming experience
+* Understanding of Go Modules
+
+: You already built something in Go, you tested it and ideally you are already using Go modules
+
+## Database schema migrations?
+
+> _... refers to the management of **incremental, reversible changes and version control to relational database schemas**. A schema migration is performed on a database whenever it is necessary to update or revert that database's schema to some newer or older version._
+
+[Wikipedia: Schema Migration](https://en.wikipedia.org/wiki/Schema_migration)
+
+> _... simple change to a database schema that improves its design while retaining both its behavioral and informational semantics_
+
+[Wikipedia: Database refactoring](https://en.wikipedia.org/wiki/Database_refactoring)
+
+: It's not about migrating from one database engine to another, it is about database schema evolution.
+: It's about collaborating when making changes to that said schema, considering cases when rollback may be necessary.
+
+## Recommended reading
+
+* Refactoring Databases (2006)
+* Monolith to Microservices (2019)
+
+.image books.png _ 600
+
+: 13 years between those two books but really relevant to what we are discussing right now
+
+## Popular tools
+
+Two flavors:
+
+* DSL-based, or
+* Explicit SQL
+
+Tools:
+
+* Build your own :)
+* [golang-migrate/migrate](github.com/golang-migrate/migrate): CLI + Package (Explicit SQL)
+* [github.com/go-pg/migrations](https://github.com/go-pg/migrations): Package (Explicit SQL)
+* [github.com/jackc/tern](https://github.com/jackc/tern): CLI (Explicit SQL)
+* [github.com/gobuffalo/pop](https://github.com/gobuffalo/pop): CLI (DSL + Explicit SQL)
+* And many more....
+
+: golang-migrate/migrate a lot of supported engines and data sources AND a lot of dependencies; you have a CLI by default
+: go-pg/migrations you have to build your CLI using their API, postgresl only
+: jackc/tern CLI for postgres
+: gobuffalo/pop DSL-based using fizz and also explicit SQL
+
+## Demo
+
+Yehey!
