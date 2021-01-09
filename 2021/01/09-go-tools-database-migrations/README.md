@@ -1,7 +1,5 @@
 # Go Tools: For database schema migrations
 
-_Published Video - TBD_
-
 1. Install [`direnv`](https://github.com/direnv/direnv)
 
 ## Setup
@@ -30,12 +28,18 @@ Migrate up
 migrate -path migrations/ -database postgres://user:password@localhost:5432/dbname?sslmode=disable up
 ```
 
-igrate down
+Migrate down
 
 ```
 migrate -path migrations/ -database postgres://user:password@localhost:5432/dbname?sslmode=disable down
 ```
 
+Create migration
+
+```
+migrate create -ext sql -dir migrations/ books_add_column_pages
+```
+
 ## Problem
 
-_TBD_
+How to implement Database Schema Migrations?

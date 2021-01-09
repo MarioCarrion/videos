@@ -10,6 +10,7 @@ https://mariocarrion.com
 
 ## Requirements
 
+* Docker
 * Go 1.15 and some programming experience
 * Understanding of Go Modules
 
@@ -33,7 +34,7 @@ https://mariocarrion.com
 * Refactoring Databases (2006)
 * Monolith to Microservices (2019)
 
-.image books.png _ 600
+.image 09-go-tools-database-migrations-books.png _ 600
 
 : 13 years between those two books but really relevant to what we are discussing right now
 
@@ -61,3 +62,10 @@ Tools:
 ## Demo
 
 Yehey!
+
+## Best Practices and Guidelines
+
+* Define filename conventions
+* Prefer using SQL instead DSL
+* _Actual migration_ should be part of the deployment pipeline
+* _Actual migration_ should happend, ideally, at the same time when the related code is deployed
