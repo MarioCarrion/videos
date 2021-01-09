@@ -55,8 +55,8 @@ Tools:
 * And many more....
 
 : golang-migrate/migrate a lot of supported engines and data sources AND a lot of dependencies; you have a CLI by default
-: go-pg/migrations you have to build your CLI using their API, postgresl only
-: jackc/tern CLI for postgres
+: go-pg/migrations you have to build your CLI using their API, PostgreSQL only
+: jackc/tern CLI for PostgreSQL
 : gobuffalo/pop DSL-based using fizz and also explicit SQL
 
 ## Demo
@@ -68,4 +68,4 @@ Yehey!
 * Define filename conventions
 * Prefer using SQL instead DSL
 * _Actual migration_ should be part of the deployment pipeline
-* _Actual migration_ should happend, ideally, at the same time when the related code is deployed
+* _Actual migration_ should happen, ideally, at the same time when the related code is deployed
