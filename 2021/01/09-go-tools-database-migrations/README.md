@@ -1,6 +1,7 @@
 # Go Tools: For database schema migrations
 
-[Published Video](https://youtu.be/EavdaeUmn64)
+* [Published Video](https://youtu.be/EavdaeUmn64)
+* [Blog post](https://mariocarrion.com/2021/01/10/golang-tools-for-database-schema-migrations.html)
 
 1. Install [`direnv`](https://github.com/direnv/direnv)
 
