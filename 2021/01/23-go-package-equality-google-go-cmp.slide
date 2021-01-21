@@ -1,0 +1,55 @@
+# Go Package: google/go-cmp
+
+Package for equality of Go values
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+: Greet the audience and short intro about myself
+
+## Agenda
+
+* Demo requirements
+* Testing
+* Asserting tesults
+* Demo
+
+## Demo requirements
+
+* Go 1.15
+* Go Modules
+
+: You already built something in Go, you tested it and ideally you are already using Go modules
+
+## Testing 
+
+* Is all about comparing outputs, _expected_ and _actuals_.
+
+.code 23-go-package-equality-google-go-cmp/sum_test.go /PRESENT OMIT/,/PRESENT END OMIT/
+
+* [**testing**](https://pkg.go.dev/testing) in Go:
+  * Coverage: _Coverage()_
+  * Benchmarking: _`B`_
+  * Parallelism: _T.Parallel()_
+  * Teardown: _`T.Cleanup()`_
+* But, is it enough?
+
+: Quick intro to what testing used for and how Go supports it in the standard library
+
+## Asserting test results
+
+* Vanilla comparisson 
+  * Included in Go
+     * == and !=
+     * `reflect.DeepEqual`
+  * [github.com/google/go-cmp](https://pkg.go.dev/github.com/google/go-cmp)
+* Assertion packages
+  * [github.com/stretchr/testify](http://pkg.go.dev/github.com/stretchr/testify)
+  * [gotest.tools/v3/assert](https://pkg.go.dev/gotest.tools/v3/assert)
+
+: How to compare those results?
+
+## Demo
+
+* Let's see `github.com/google/go-cmp` in action
