@@ -1,0 +1,25 @@
+# Tips for building Microservices in Go: Caching using memcached
+
+Using package: *github.com/bradfitz/gomemcache*
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+: Greet the audience and short intro about myself
+
+## Agenda
+
+* Project intro
+* Demo
+
+## Project intro
+
+* Web Service
+* [IMDB](https://www.imdb.com/interfaces/) Datasets
+* PostgreSQL
+* Memcached
+
+## Demo
+
+* Let's see it in action!
