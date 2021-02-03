@@ -1,0 +1,34 @@
+# Tips for building Microservices in Go: Accessing PostgreSQL Databases - Part 1
+
+3 different ways to do similar things
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+: Greet the audience and short intro about myself
+
+## Agenda
+
+* Project intro
+* Different ways to access databases
+* Part 1 Demo
+
+## Project intro
+
+* Web Service
+* [IMDB](https://www.imdb.com/interfaces/) Datasets
+* PostgreSQL
+
+## Different ways to access databases
+
+1. Plain SQL
+    * [database/sql](https://pkg.go.dev/database/sql) + [lib/pq\*](https://pkg.go.dev/github.com/lib/pq), [jmoiron/sqlx](https://pkg.go.dev/github.com/jmoiron/sqlx) , [jackc/pgx](https://pkg.go.dev/github.com/jackc/pgx)
+2. ORM/ORM-like
+    * [go-gorm/gorm](https://pkg.go.dev/github.com/go-gorm/gorm), [gobuffalo/pop](https://pkg.go.dev/github.com/gobuffalo/pop); and [volatiletech/sqlboiler](https://pkg.go.dev/github.com/volatiletech/sqlboiler)
+3. SQL Statements Builder / Code generators
+    * [Masterminds/squirrel](https://pkg.go.dev/github.com/Masterminds/squirrel) and [kyleconroy/sqlc](https://pkg.go.dev/github.com/kyleconroy/sqlc)
+
+## Part 1 Demo
+
+* Let's see it in action!
