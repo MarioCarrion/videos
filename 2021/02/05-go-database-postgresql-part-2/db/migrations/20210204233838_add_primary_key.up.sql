@@ -1,0 +1,1 @@
+ALTER TABLE names ADD PRIMARY KEY (nconst);
