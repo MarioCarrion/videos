@@ -1,0 +1,11 @@
+output  = "models"
+wipe    = true
+no-test = true
+
+[psql]
+  dbname    = "dbname"
+  host      = "localhost"
+  user      = "user"
+  pass      = "password"
+  sslmode   = "disable"
+  blacklist = ["schema_migrations"]
