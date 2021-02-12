@@ -1,0 +1,16 @@
+# Go Package: h2non/gock
+
+Package for mocking and testing HTTP traffic
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+## What are we doing?
+
+* Testing Weather CLI (uses [OpenWeather](https://openweathermap.org/))
+* Mock HTTP traffic using gock
+
+## Demo
+
+* Let's see `github.com/h2non/gock` in action
