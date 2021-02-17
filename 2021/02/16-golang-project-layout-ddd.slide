@@ -1,0 +1,35 @@
+# Tips for building Microservices in Go: Project Layout and Domain Driven Design
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+## Agenda
+
+* Domain Driven Design
+* Other approaches
+* Project Layout
+
+## Domain Driven Design (2003)
+
+[Martin Fowler](https://martinfowler.com/bliki/DomainDrivenDesign.html):
+
+> _"Domain-Driven Design is an approach to software development that centers the_
+> _development on programming a domain model that has a rich understanding of_
+> _the processes and rules of a domain"_
+
+* It's not easy
+* Recommended for large/complex systems
+* Interesting concepts: _Ubiquitous Language_, _Bounded Context_, ... more.
+
+## More ideas
+
+* [2016: Peter Bourgon's: Repository structure](https://peter.bourgon.org/go-best-practices-2016/#repository-structure)
+* [2016: Ben Johnson's: Standard Package Layout](https://medium.com/@benbjohnson/standard-package-layout-7cdbc8391fc1)
+* [2017: William Kennedy's: Design Philosophy On Packaging](https://www.ardanlabs.com/blog/2017/02/design-philosophy-on-packaging.html)
+* [2017: Jaana Dogan's: Style guideline for Go packages](https://rakyll.org/style-packages/)
+* [2018: Kat Zien - How Do You Structure Your Go Apps](https://www.youtube.com/watch?v=oL6JBUk6tj0)
+
+## Project Layout
+
+[Demo!](https://github.com/MarioCarrion/todo-api-microservice-example/)
