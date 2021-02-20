@@ -1,0 +1,14 @@
+# Tips for building Microservices in Go: Repository Pattern, Services and Dependency Injection
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+## Agenda
+
+* What is the Repository Pattern?
+* What are Services: Domain and Application?
+* What is Dependency Injection?
+   * Not using [google/wire](https://github.com/google/wire)
+   * Not using [uber-go/dig](https://github.com/uber-go/dig)
+* Demo!
