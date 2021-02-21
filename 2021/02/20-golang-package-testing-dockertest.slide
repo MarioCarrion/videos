@@ -1,0 +1,15 @@
+# Go Package for testing: ory/dockertest
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+## What are we doing?
+
+* Why Docker?
+* Not mocking datatabase calls because...
+* We are testing a database with a real server!
+
+## Demo
+
+* Let's see [**ory/dockertest**](https://github.com/ory/dockertest) in action!
