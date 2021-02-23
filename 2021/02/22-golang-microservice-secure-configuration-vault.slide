@@ -1,0 +1,42 @@
+# Tips for building Microservices in Go: Secure Configuration using Environment Variables and Hashicorp's Vault
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+## Agenda
+
+* Ways to configure services
+* Why enviroment variables?
+* Packages to use for configuration
+* Demo!
+
+## Ways to configure services
+
+1. Bundle configuration in the final artifact
+1. Use command line arguments
+1. Environment variables injected during runtime
+1. A combination of some/all of them?
+
+## Why environment variables?
+
+* Pros ([Store config in the environment - 12FactorApp](https://12factor.net/config))
+  * Configuration is easy to change during deployments
+  * Allows keeping service artifacts "practically" the same across environments
+
+* Cons
+  * Cumbersome to configuration depending on the amount of options
+  * Not secure "by default"
+  * No actual data types, outside the normal key/value
+
+## Packages to use for configuration
+
+When talking about environment variables specifically:
+
+* [os.Getenv](https://pkg.go.dev/os#Getenv)
+* [joho/godotenv](https://github.com/joho/godotenv)
+* [kelseyhightower/envconfig](https://github.com/kelseyhightower/envconfig)
+
+Any of those plus:
+
+* Secure wrapper around them!
