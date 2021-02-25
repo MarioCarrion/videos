@@ -1,0 +1,38 @@
+# Tips for building Microservices in Go: REST APIs
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+## Agenda
+
+* What is a REST API?
+* Steps to build REST APIs
+* Demo!
+
+## What is REST API?
+
+According to [RedHat](https://www.redhat.com/en/topics/api/what-is-a-rest-api):
+
+>> A REST API (also known as RESTful API) is an application programming interface (API or web API) that
+>> conforms to the constraints of REST architectural style and allows for interaction with RESTful web
+>> services.
+
+* Stateless
+* Uses _resources_ (`/tasks/`, `/tasks/{id}`, ...)
+* HTTP methods used semantically, (usually) map to CRUD operations -> POST,GET,PUT,DELETE
+* JSON is the _de-facto_ standard for transfering data 
+
+## Steps to build REST APIs
+
+1. Implement HTTP Handlers
+1. Implement Tests
+1. Implement custom types
+1. Implement OpenAPI (fka Swagger)
+1. Implement Versioning
+
+## Implement HTTP Handlers
+
+* Using [gorilla/mux](https://github.com/gorilla/mux)
+* Using Domain Driven Design
+* Using [Onion Architecture](https://jeffreypalermo.com/2008/07/the-onion-architecture-part-1/)
