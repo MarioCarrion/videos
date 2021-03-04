@@ -1,0 +1,15 @@
+# Tips for building Microservices in Go: REST APIs
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+## Steps to build REST APIs
+
+1. Implement HTTP Handlers
+1. Implement Tests
+1. 👋 **Implement custom types**
+    * `Priority`
+    * `Dates` (`Time`)
+1. Implement OpenAPI (fka Swagger)
+1. Implement Versioning
