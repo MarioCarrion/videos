@@ -1,0 +1,62 @@
+# Tips for building Microservices in Go: REST APIs
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+## Steps to build REST APIs
+
+1. Implement HTTP Handlers
+1. Implement Tests
+1. Implement custom types
+1. 👋 **Implement OpenAPI (fka Swagger)**
+    * Generating OpenAPI 3.0.0 in YAML and JSON
+    * Integrating swagger-ui
+    * Generating a Go client for our API
+1. Implement Versioning
+
+## Why is OpenAPI / Swagger even needed?
+
+* Documentation
+* Collaboration
+
+Alternatives
+
+* [RAML](https://raml.org/)
+* [API Blueprint](https://apiblueprint.org/)
+
+Recommended reading
+
+* [The Design of Web APIs](https://www.amazon.com/gp/product/1617295108)
+* [Irresistible APIs: Designing web APIs that developers will love](https://www.amazon.com/gp/product/1617292559)
+
+## Implement OpenAPI (fka Swagger)
+
+What is OpenAPI? What is Swagger?  [\*](https://swagger.io/blog/api-strategy/difference-between-swagger-and-openapi/)
+
+  > _The easiest way to understand the difference is:_
+  > * _OpenAPI = [Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md)_
+  > * _Swagger = Tools for implementing the specification_
+
+Real Life example: [Github REST API](https://docs.github.com/en/rest/overview/openapi-description)
+
+Official Tools:
+
+* [Swagger Editor](https://editor.swagger.io/)
+* [Swagger Codegen 3.X](https://github.com/swagger-api/swagger-codegen/tree/3.0.0)
+* [Swagger UI](https://swagger.io/tools/swagger-ui/), [Live demo](https://petstore.swagger.io/)
+* [Swagger Validator](https://github.com/swagger-api/validator-badge)
+
+## How to put it all together using Go?
+
+[Differences between 2.x and 3.x](https://stoplight.io/blog/difference-between-open-v2-v3-v31/)
+
+👋 OpenAPI 3.x (2017) (3.1 released last month, 02/2021)
+
+* [github.com/getkin/kin-openapi/openapi3](https://github.com/getkin/kin-openapi): _OpenAPI 3.0 implementation for Go (parsing, converting, validation, and more)_.
+* [github.com/deepmap/oapi-codegen](https://github.com/deepmap/oapi-codegen): _Generate Go client and server boilerplate from OpenAPI 3 specifications_.
+
+🤔 OpenAPI 2.x (2014)
+
+* [github.com/go-swagger/go-swagger](https://github.com/go-swagger/go-swagger): _Swagger 2.0 implementation for go_.
+* [github.com/swaggo/swag](https://github.com/swaggo/swag): _Automatically generate RESTful API documentation with Swagger 2.0 for Go_.
