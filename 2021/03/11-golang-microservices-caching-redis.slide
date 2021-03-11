@@ -1,0 +1,24 @@
+# Tips for building Microservices in Go: Caching using Redis
+
+Using *github.com/go-redis/redis*
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+## Project intro
+
+* Web Service
+* [IMDB](https://www.imdb.com/interfaces/) Datasets
+* PostgreSQL
+* [Redis](https://redis.io/)
+
+## What is Redis?
+
+> _Redis is an open source (BSD licensed), in-memory **data structure store**, used as a database, cache, and message broker. Redis provides [data structures](https://redis.io/commands) such as strings, hashes, lists, sets, sorted sets with range queries, bitmaps, hyperloglogs, geospatial indexes, and streams._
+
+> _Redis has **built-in replication, Lua scripting, LRU eviction, transactions**, and different levels of on-disk persistence, and provides high availability via Redis Sentinel and automatic partitioning with Redis Cluster_
+
+## Demo
+
+* Let's see it in action!
