@@ -1,0 +1,104 @@
+# Tips for building Microservices in Go: REST APIs
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+## Steps to build REST APIs
+
+1. Implement HTTP Handlers
+1. Implement Tests
+1. Implement custom types
+1. Implement OpenAPI (fka Swagger)
+1. 👋 **Implement Versioning**
+    * What is Semver?
+    * Approaches
+        * Path
+        * Domain
+        * Query Arguments
+        * Header
+
+## What is Semver?
+
+[Semver](https://semver.org/) is _Semantic Versioning_
+
+> _a way to indicate a concrete software version using 3 digits, those 3 digits are written as **MAJOR.MINOR.PATCH**_
+
+Those digits mean:
+
+* **MAJOR** version when you make incompatible API changes,
+* **MINOR** version when you add functionality in a backwards compatible manner, and
+* **PATCH** version when you make backwards compatible bug fixes.
+
+## Approaches: Path
+
+Differentiate versions by a parent path. Examples:
+
+* _GET https://todo.app/**v1**/tasks/{taskId}_
+* _GET https://todo.app/**v2**/tasks/{taskId}_
+  * [Google Blogger v2/v3 API](https://developers.google.com/blogger/docs/2.0/json/reference)
+
+Notes:
+
+* In Go: two different handlers using different paths/requests/responses.
+* Not Go: two different microservices using a gateway per version.
+* OpenAPI/Swagger: can be used.
+
+## Approaches: Domain
+
+Differentiate versions by subdomain. Examples:
+
+* _GET https://**v1**.todo.app/tasks/{taskId}_
+* _GET https://**v2**.todo.app/tasks/{taskId}_
+
+Notes:
+
+* They could literally be two different microservices.
+* OpenAPI/Swagger: can be used.
+
+## Approaches: Query Arguments
+
+Differentiate versions by query arguments. Examples:
+
+* _GET https://todo.app/tasks/{taskId}?**v=1**_
+* _GET https://todo.app/tasks/{taskId}?**v=2**_
+  * [Microsoft Azure DevOps Services: api-version](https://docs.microsoft.com/en-us/azure/devops/integrate/concepts/rest-api-versioning?view=azure-devops)
+  * [Microsoft Azure Cognitive Search: api-version](https://docs.microsoft.com/en-us/rest/api/searchmanagement/management-api-versions)
+   
+Notes:
+
+* Different technogies: a gateway could be used.
+* Same technologies: complicated to maintain because both may be using the same underlying handler.
+* OpenAPI/Swagger: hard to define requests and schemas.
+
+## Approaches: Header
+
+Differentiate versions by values in headers. Examples:
+
+* Custom Header
+
+  _GET -H **"Version: <VERSION>"** https://todo.app/tasks/{taskId}_
+
+* Content Negotiation: [Github](https://docs.github.com/en/rest/overview/media-types#request-specific-version), using [vendor prefix](https://tools.ietf.org/html/rfc4288#section-3.2)
+
+  _GET -H **"Accept: application/vnd.todo.<VERSION>+json"** https://todo.app/tasks/{taskId}_
+
+Notes:
+
+* Different technogies: a gateway could be used.
+* Same technologies: complicated to maintain because both may be using the same underlying handler.
+* OpenAPI/Swagger: hard to define requests and schemas.
+
+## What's the best option? "It depends"
+
+* **Before**: adding a new major version:
+  * 🚨Delay **v1** as much as possible "stay with v0 _forever_".
+  * 🚨Try to make your changes additive only and deprecate old ones.
+* **While**: dealing with multiple versions. Consider a hybrid, for example _Paths_:
+  * _v1_: _GET https://todo.app/v1/tasks/{taskId}_
+  * _v1_: **deprecated** _PUT https://todo.app/v1/tasks/{taskId}_
+  * _v2_: _PUT https://todo.app/v2/tasks/{taskId}_
+* **After**:
+  * Encourage users to upgrade to new version (indicate new features and capabilities).
+  * Provide a way to automatically upgrade.
+  * Give a concrete deadline, plan deprecating older versions, if you can.
