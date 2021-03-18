@@ -1,0 +1,34 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers: {}
+    url: https://api.openweathermap.org/data/2.5/weather?appid=appID-401&units=metric&zip=90210
+    method: GET
+  response:
+    body: '{"cod":401, "message": "Invalid API key. Please see http://openweathermap.org/faq#error401
+      for more info."}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Methods:
+      - GET, POST
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - "107"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 18 Mar 2021 02:53:21 GMT
+      Server:
+      - openresty
+      X-Cache-Key:
+      - /data/2.5/weather?units=metric&zip=90210
+    status: 401 Unauthorized
+    code: 401
+    duration: ""

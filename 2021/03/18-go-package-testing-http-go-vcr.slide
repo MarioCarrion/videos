@@ -1,0 +1,16 @@
+# Go Package: dnaeon/go-vcr
+
+Package for recording and replaying HTTP interactions.
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+## What are we doing?
+
+* Testing Weather CLI (uses [OpenWeather](https://openweathermap.org/))
+* Record and replay HTTP interactions using go-vcr
+
+## Demo
+
+* Let's see [`github.com/dnaeon/go-vcr`](https://github.com/dnaeon/go-vcr) in action

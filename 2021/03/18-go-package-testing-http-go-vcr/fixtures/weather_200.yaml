@@ -1,0 +1,35 @@
+---
+version: 1
+interactions:
+- request:
+    body: ""
+    form: {}
+    headers: {}
+    url: https://api.openweathermap.org/data/2.5/weather?units=metric&zip=90210
+    method: GET
+  response:
+    body: '{"coord":{"lon":-118.4065,"lat":34.0901},"weather":[{"id":800,"main":"Clear","description":"clear
+      sky","icon":"01n"}],"base":"stations","main":{"temp":12.2,"feels_like":9.96,"temp_min":11.11,"temp_max":15,"pressure":1019,"humidity":76},"visibility":10000,"wind":{"speed":2.57,"deg":250},"clouds":{"all":1},"dt":1616036504,"sys":{"type":1,"id":5872,"country":"US","sunrise":1615989656,"sunset":1616032969},"timezone":-25200,"id":0,"name":"Beverly
+      Hills","cod":200}'
+    headers:
+      Access-Control-Allow-Credentials:
+      - "true"
+      Access-Control-Allow-Methods:
+      - GET, POST
+      Access-Control-Allow-Origin:
+      - '*'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - "463"
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 18 Mar 2021 03:04:04 GMT
+      Server:
+      - openresty
+      X-Cache-Key:
+      - /data/2.5/weather?units=metric&zip=90210
+    status: 200 OK
+    code: 200
+    duration: ""
