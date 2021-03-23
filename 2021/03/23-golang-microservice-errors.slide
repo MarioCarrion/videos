@@ -1,0 +1,48 @@
+# Tips for building Microservices in Go: Errors
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+## Dealing with Errors
+
+* 👋 **Implementing errors in Go**
+* Observability
+* Dealing with failures
+
+## Errors in Go
+
+Changes introduced [in 1.13](https://blog.golang.org/go1.13-errors), [FAQ](https://github.com/golang/go/wiki/ErrorValueFAQ)
+
+* errors.Is
+
+```
+if err == io.ErrUnexpectedEOF // Before
+if errors.Is(err, io.ErrUnexpectedEOF) // After
+```
+
+* errors.As
+
+```
+if e, ok := err.(*os.PathError); ok // Before
+
+var e *os.PathError // After
+if errors.As(err, &e)
+```
+
+* New `fmt` verb `%w`
+    * errors.Unwrap
+    * Wrapping: `fmt.Errorf("message: %w", err)`
+
+## Other resources regarding errors
+
+* Packages
+    * [github.com/pkg/errors](https://github.com/pkg/errors)
+    * [github.com/hashicorp/go-multierror](https://github.com/hashicorp/go-multierror)
+    * [golang.org/x/pkgsite/internal/derrors](https://pkg.go.dev/golang.org/x/pkgsite/internal/derrors)
+* [GopherCon 2020: Jonathan Amsterdam - Working with Errors](https://www.youtube.com/watch?v=IKoSsJFdRtI)
+
+
+## Demo time!
+
+🥳
