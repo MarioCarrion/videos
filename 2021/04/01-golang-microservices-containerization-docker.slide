@@ -1,0 +1,27 @@
+# Tips for building Microservices in Go: Containerization using Docker
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+## What is Docker
+
+> _[Docker](https://www.docker.com/get-started) is a tool designed to make it easier to create, deploy, and run applications by using containers.
+> Containers allow a developer to package up an application with all of the parts it needs, such as libraries
+> and other dependencies, and deploy it as one package._
+
+Docker Registries
+
+* [DockerHub](https://hub.docker.com/)
+* [Amazon Elastic Container Registry](https://aws.amazon.com/ecr/)
+* [Google Cloud Container Registry](https://cloud.google.com/container-registry)
+
+Works on
+
+* [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine)
+* [Amazon Elastic Container Service](https://aws.amazon.com/ecs/)
+* [Amazon Elastic Kubernetes Service](https://aws.amazon.com/eks/)
+
+## Demo time!
+
+🥳
