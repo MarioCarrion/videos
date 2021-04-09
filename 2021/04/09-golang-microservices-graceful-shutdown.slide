@@ -1,0 +1,14 @@
+# Tips for building Microservices in Go: Graceful Shutdown
+
+Mario Carrion
+https://mariocarrion.com
+@MarioCarrion
+
+## Specific Configuration
+
+* [Kubernetes](https://cloud.google.com/blog/products/containers-kubernetes/kubernetes-best-practices-terminating-with-grace)
+* [Amazon ECS](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StopTask.html)
+
+## Demo time!
+
+🥳
