@@ -8,21 +8,24 @@ import (
 	"sync"
 )
 
+// What is the Fan-In concurrency pattern?
+// Consolidation of multiple channels into one channel by multiplexing each recieved value.
 func main() {
-	ch1, err := read("file1.csv")
+	ch1, err := readCSV("file1.csv")
 	if err != nil {
-		panic(fmt.Errorf("Could not read file1 %v", err))
+		panic(fmt.Errorf("Could not read file1 %v\n", err))
 	}
 
-	ch2, err := read("file2.csv")
+	ch2, err := readCSV("file2.csv")
 	if err != nil {
-		panic(fmt.Errorf("Could not read file2 %v", err))
+		panic(fmt.Errorf("Could not read file2 %v\n", err))
 	}
 
 	//-
 
 	exit := make(chan struct{})
 
+	// chM := merge1(ch1, ch2)
 	chM := merge2(ch1, ch2)
 
 	go func() {
@@ -98,10 +101,10 @@ func merge2(cs ...<-chan []string) <-chan []string {
 	return out
 }
 
-func read(file string) (<-chan []string, error) {
+func readCSV(file string) (<-chan []string, error) {
 	f, err := os.Open(file)
 	if err != nil {
-		return nil, fmt.Errorf("opening file %v", err)
+		return nil, fmt.Errorf("opening file %v\n", err)
 	}
 
 	ch := make(chan []string)

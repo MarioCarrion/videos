@@ -11,6 +11,14 @@ import (
 	"golang.org/x/sync/errgroup"
 )
 
+/**
+Concurrency Pattern using errgroup package
+
+What is in errgroup?
+Includes ways to do Synchronization, Error propagation and Context cancelation.
+
+Works for groups of goroutines working on a common task.
+*/
 func main() {
 	wait := waitGroups()
 	// wait := errGroup()
