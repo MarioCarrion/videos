@@ -7,10 +7,12 @@ import (
 	"os"
 )
 
+// What is the Fan-Out concurrency pattern?
+// Breakup of one channel into multiple ones by distributing each value.
 func main() {
-	ch1, err := read("file1.csv")
+	ch1, err := readCSV("file1.csv")
 	if err != nil {
-		panic(fmt.Errorf("Could not read file1 %v", err))
+		panic(fmt.Errorf("Could not read file1 %v\n", err))
 	}
 
 	//-
@@ -90,10 +92,10 @@ func merge(cs ...<-chan []string) <-chan []string {
 	return out
 }
 
-func read(file string) (<-chan []string, error) {
+func readCSV(file string) (<-chan []string, error) {
 	f, err := os.Open(file)
 	if err != nil {
-		return nil, fmt.Errorf("opening file %v", err)
+		return nil, fmt.Errorf("opening file %v\n", err)
 	}
 
 	ch := make(chan []string)
