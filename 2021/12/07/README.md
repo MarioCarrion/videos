@@ -17,17 +17,17 @@ go install golang.org/x/perf/cmd/benchstat@latest
 For example, running a benchmark using a:
 
 ```
-go test -bench=BenchmarkConcat | tee current.txt
+go test -count=10 -bench=BenchmarkConcat | tee old.txt
 ```
 
 Then modifying the original code with the new implementation and running:
 
 ```
-go test -bench=BenchmarkConcat | tee new.txt
+go test -count=10 -bench=BenchmarkConcat | tee new.txt
 ```
 
 Finally, you can compare both using `benchstat`:
 
 ```
-benchstat new.txt current.txt
+benchstat old.txt new.txt
 ```

@@ -1,12 +1,10 @@
 package benchmark
 
-import (
-	"strings"
-)
+import "strings"
 
 func Concat(a, b string) string {
 	// Ineffecient implementation using fmt
-	// return fmt.Sprint("%s%s", a, b)
+	// return fmt.Sprintf("%s%s", a, b)
 
 	// Efficient implementation starts here
 	builder := strings.Builder{}
