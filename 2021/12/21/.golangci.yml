@@ -1,0 +1,7 @@
+linters:
+  enable-all: true
+  disable:
+    - golint
+    - interfacer
+    - maligned
+    - scopelint
