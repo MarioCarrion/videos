@@ -1,0 +1,9 @@
+linters:
+  enable-all: true
+
+  disable:
+    # The following are deprecated linters, added to avoid intial warning when running
+    - golint
+    - interfacer
+    - maligned
+    - scopelint
