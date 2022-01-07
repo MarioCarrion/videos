@@ -1,0 +1,59 @@
+basePath: /
+consumes:
+- application/json
+definitions:
+  User:
+    description: User represents the user for this application
+    properties:
+      birth_year:
+        description: The birth year for this user
+        format: int64
+        maximum: 2022
+        minimum: 1900
+        type: integer
+        x-go-name: BirthYear
+      name:
+        description: The name for this user
+        type: string
+        x-go-name: Name
+    required:
+    - name
+    type: object
+    x-go-package: github.com/MarioCarrion/videos/2022/01/07
+host: localhost
+info:
+  description: Example of first code approach
+  title: defines the example
+  version: 0.0.1
+paths:
+  /users:
+    get:
+      description: Insert documentation
+      operationId: getUsers
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: user response
+          schema:
+            items:
+              $ref: '#/definitions/User'
+            type: array
+    post:
+      description: Include documentation
+      operationId: postUser
+      parameters:
+      - in: body
+        name: Body
+        schema:
+          $ref: '#/definitions/User'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: user response
+produces:
+- application/json
+schemes:
+- https
+swagger: "2.0"
