@@ -13,7 +13,7 @@ This example includes two folders:
 * [start/](start/): includes the initial example shown and
 * [completed/](completed/): includes the final example shown
 
-## Hypotethical Example
+## Hypothetical Example
 
 Create an API that includes options for:
 
@@ -22,7 +22,7 @@ Create an API that includes options for:
 
 Where an `User` has a:
 
-* `name` string (minimum lenght 5)
+* `name` string (minimum length 5)
 * `birth_year` int (minimum value 1900, maximum value 2022)
 
 ## Installing `go-swagger`
