@@ -1,0 +1,4 @@
+[BuyingCookies]
+hash = "sha1-d16a485192ac366b9bedf27b8f48e9c67a949b2b"
+one = "Estas comprando 1 galleta."
+other = "Estas comprando {{.PluralCount}} galletas."

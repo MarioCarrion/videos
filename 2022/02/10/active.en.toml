@@ -1,0 +1,3 @@
+[BuyingCookies]
+one = "You're buying 1 cookie."
+other = "You're buying {{.PluralCount}} cookies."
