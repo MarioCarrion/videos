@@ -28,7 +28,7 @@ func (p *PostgreSQLC) Close() {
 }
 
 func (p *PostgreSQLC) FindByNConst(nconst string) (Name, error) {
-	row, err := New(p.db).SelectName(context.Background(), sql.NullString{String: nconst})
+	row, err := New(p.db).SelectName(context.Background(), sql.NullString{String: nconst, Valid: true})
 
 	if err != nil {
 		return Name{}, err
