@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package user.v1;
+
+option go_package = "github.com/MarioCarrion/videos/2022/02/17/gen/go/user/v1;userpb";
+
+message User {
+  string uuid       = 1;
+  string full_name  = 2;
+  int64  birth_year = 3;
+}
