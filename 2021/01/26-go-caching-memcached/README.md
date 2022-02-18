@@ -50,7 +50,7 @@ go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate
 Then, assuming you used docker, you can run:
 
 ```
-migrate -path db/migrations/ -database postgres://user:password@localhost:5432/dbname?sslmode=disable up
+migrate -path db/migrations/ -database "postgres://user:password@localhost:5432/dbname?sslmode=disable" up
 ```
 
 ### Memcached

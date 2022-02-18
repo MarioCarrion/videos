@@ -28,13 +28,13 @@ go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate
 Migrate up
 
 ```
-migrate -path migrations/ -database postgres://user:password@localhost:5432/dbname?sslmode=disable up
+migrate -path migrations/ -database "postgres://user:password@localhost:5432/dbname?sslmode=disable" up
 ```
 
 Migrate down
 
 ```
-migrate -path migrations/ -database postgres://user:password@localhost:5432/dbname?sslmode=disable down
+migrate -path migrations/ -database "postgres://user:password@localhost:5432/dbname?sslmode=disable" down
 ```
 
 Create migration
