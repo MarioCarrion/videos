@@ -1,4 +1,4 @@
-module github.com/MarioCarrion/videos/2022/01/07
+module github.com/MarioCarrion/videos/2022/01/07/completed
 
 go 1.17
 
