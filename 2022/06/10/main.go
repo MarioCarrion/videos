@@ -26,6 +26,7 @@ func main() {
 	g, ctx := errgroup.WithContext(context.Background())
 
 	for _, svc := range svcs {
+		svc := svc
 		g.Go(func() error {
 			v, err := svc(ctx)
 			if err != nil {
