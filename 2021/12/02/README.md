@@ -21,6 +21,7 @@ Database Schema used:
 ```sql
 CREATE TABLE users(
   first_name VARCHAR  NOT NULL,
-  last_name  VARCHAR  NOT NULL
+  last_name  VARCHAR  NOT NULL,
+  age        INT      NOT NULL
 );
 ```

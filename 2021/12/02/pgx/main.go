@@ -9,6 +9,7 @@ import (
 	"net/url"
 	"os"
 	"path"
+	"strconv"
 	"time"
 
 	"github.com/jackc/pgx/v4"
@@ -53,9 +54,18 @@ func (r *RowSrc) Next() bool {
 		return false
 	}
 
-	r.values = make([]interface{}, 2)
+	fmt.Println(record)
+
+	age, err := strconv.Atoi(record[2])
+	if err != nil {
+		r.err = fmt.Errorf("strconv %w", err)
+		return false
+	}
+
+	r.values = make([]interface{}, 3)
 	r.values[0] = record[0]
 	r.values[1] = record[1]
+	r.values[2] = age
 
 	return true
 }
@@ -78,7 +88,14 @@ func insertsUsers(conn *pgx.Conn) error {
 		cr: csv.NewReader(f),
 	}
 
-	count, err := conn.CopyFrom(context.Background(), pgx.Identifier{"users"}, []string{"first_name", "last_name"}, &rowSrc)
+	count, err := conn.CopyFrom(context.Background(),
+		pgx.Identifier{"users"},
+		[]string{
+			"first_name",
+			"last_name",
+			"age",
+		},
+		&rowSrc)
 	if err != nil {
 		return fmt.Errorf("conn.CopyFrom %w", err)
 	}

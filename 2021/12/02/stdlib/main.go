@@ -9,6 +9,7 @@ import (
 	"net/url"
 	"os"
 	"path"
+	"strconv"
 	"time"
 
 	"github.com/jackc/pgx/v4"
@@ -55,7 +56,16 @@ func insertsUsers(conn *pgx.Conn) error {
 				return fmt.Errorf("cr.Read %w", err)
 			}
 
-			_, err = conn.Exec(context.Background(), "INSERT INTO users(first_name, last_name) VALUES($1, $2)", record[0], record[1])
+			age, err := strconv.Atoi(record[2])
+			if err != nil {
+				return fmt.Errorf("strconv %w", err)
+			}
+
+			_, err = conn.Exec(context.Background(),
+				"INSERT INTO users(first_name, last_name, age) VALUES($1, $2, $3)",
+				record[0],
+				record[1],
+				age)
 			if err != nil {
 				return fmt.Errorf("conn.Exec %w", err)
 			}
