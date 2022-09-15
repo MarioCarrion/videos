@@ -1,5 +1,8 @@
 # Go Vulnerability in Standard library
 
+* [Go Package Discovery](https://pkg.go.dev/net/url?tab=versions) (missing at the moment of recording)
+    * [Issue: x/pkgsite: list vulnerabilities for standard libraries #54843](https://github.com/golang/go/issues/54843)
+
 Using docker you can generate two different versions of the binary to trigger errors.
 
 ## Go 1.19.0

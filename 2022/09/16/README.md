@@ -8,3 +8,4 @@ go install golang.org/x/vuln/cmd/govulncheck@latest
 
 * [Standard Library Vulnerability](stdlib/)
 * [Third Party Library Vulnerability](thirdpartylib/)
+* [Vulnerability found, but not used](notused/)
