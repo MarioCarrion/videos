@@ -1,15 +1,9 @@
-# Go Vulnerability in Third Party library
+# Go Vulnerability found but not used!
 
 * [Go Package Discovery](https://pkg.go.dev/gopkg.in/yaml.v3?tab=versions)
 
-Compile the binary:
+Run `govulncheck ./...`, it will return a vulnerability **but** it will indicate it's ok because we are not calling the function.
 
-```
-go build .
-```
-
-Run `govulncheck thirdpartylib`, it will return a vulnerability.
-
-This report is similar to other tools/services such as [Snyk](https://snyk.io/):
+Notice how other tools/services such as [Snyk](https://snyk.io/), still report it:
 
 ![Snyk Report](snyk_report.png)
