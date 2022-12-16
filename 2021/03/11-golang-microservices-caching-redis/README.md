@@ -19,7 +19,7 @@ go mod download
 Then you can run `server.go` with the PostgreSQL and Redis configuration:
 
 ```
-DATABASE_URL=postgres://user:password@localhost:5432/dbname?sslmode=disable \
+DATABASE_URL=postgres://user:password@localhost:5432/dbname\?sslmode=disable \
 REDIS=localhost:6379 \
   go run .
 ```
