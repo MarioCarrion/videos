@@ -1,6 +1,6 @@
 # Videos
 
-Slides and source code used for the training videos I recorded, join the fun at [https://youtube.com/@MarioCarrion](https://youtube.com/@MarioCarrion)
+Slides, source code and examples used for the training videos I recorded, join the fun at [https://youtube.com/@MarioCarrion](https://youtube.com/@MarioCarrion)
 
 ## Install
 
