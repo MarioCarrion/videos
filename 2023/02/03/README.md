@@ -4,7 +4,7 @@
 
 ---
 
-Go 1.20.0 was released on August 2nd, 2022; in this directory you will find examples of some new features I consider worth mentioning added in this release.
+Go 1.20.0 was released on February 2nd, 2023; in this directory you will find examples of some new features I consider worth mentioning added in this release.
 
 * [@Golang Twitter announcement](https://twitter.com/golang/status/1620875197569187840)
 * [Download](https://go.dev/dl/#go1.20)
