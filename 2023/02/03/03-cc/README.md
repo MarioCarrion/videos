@@ -8,7 +8,7 @@ Excerpt from official release notes:
 
 ```
 go build -cover -o main
-mkdir -o cover
+mkdir -p cover
 GOCOVERDIR=cover ./main
 go tool covdata textfmt -i=cover -o profile.txt
 go tool cover -html=profile.txt
