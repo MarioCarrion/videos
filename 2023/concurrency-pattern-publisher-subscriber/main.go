@@ -69,15 +69,16 @@ func main() {
 
 	s1 := ps.Subscribe()
 
+	wg.Add(1)
+
 	go func() {
-		wg.Add(1)
+		defer wg.Done()
 
 		for {
 			select {
 			case val, ok := <-s1:
 				if !ok {
 					fmt.Print("sub 1, exiting\n")
-					wg.Done()
 					return
 				}
 
@@ -90,14 +91,14 @@ func main() {
 
 	s2 := ps.Subscribe()
 
+	wg.Add(1)
+
 	go func() {
-		wg.Add(1)
+		defer wg.Done()
 
 		for val := range s2 {
 			fmt.Println("sub 2, value ", val)
 		}
-
-		wg.Done()
 
 		fmt.Print("sub 2, exiting\n")
 	}()
