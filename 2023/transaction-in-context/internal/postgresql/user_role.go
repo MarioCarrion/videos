@@ -21,17 +21,11 @@ func NewUserRole(conn *pgx.Conn) *UserRole {
 }
 
 func (u *UserRole) Insert(ctx context.Context, id uuid.UUID, roleIDs ...uuid.UUID) error {
-	tx, err := u.conn.Begin(ctx)
-	if err != nil {
-		return fmt.Errorf("Begin %w", err)
-	}
+	err := transaction(ctx, u.conn, func(tx pgx.Tx) error {
+		urq := userRoleQueries{conn: tx}
 
-	const sql = `INSERT INTO users_roles(user_id, role_id) VALUES ($1, $2)`
-
-	err = transaction(ctx, tx, func() error {
 		for _, roleID := range roleIDs {
-			_, err := tx.Exec(ctx, sql, &id, &roleID)
-			if err != nil {
+			if err := urq.Insert(ctx, id, roleID); err != nil {
 				return fmt.Errorf("Exec %w", err)
 			}
 		}
@@ -46,6 +40,27 @@ func (u *UserRole) Insert(ctx context.Context, id uuid.UUID, roleIDs ...uuid.UUI
 }
 
 func (u *UserRole) Select(ctx context.Context, id uuid.UUID) (internal.User, error) {
+	urq := userRoleQueries{conn: u.conn}
+
+	return urq.Select(ctx, id)
+}
+
+type userRoleQueries struct {
+	conn DBTX
+}
+
+func (u *userRoleQueries) Insert(ctx context.Context, id uuid.UUID, roleID uuid.UUID) error {
+	const sql = `INSERT INTO users_roles(user_id, role_id) VALUES ($1, $2)`
+
+	_, err := u.conn.Exec(ctx, sql, &id, &roleID)
+	if err != nil {
+		return fmt.Errorf("Exec %w", err)
+	}
+
+	return nil
+}
+
+func (u *userRoleQueries) Select(ctx context.Context, id uuid.UUID) (internal.User, error) {
 	const sql = `
 SELECT
 	U.id AS user_id,

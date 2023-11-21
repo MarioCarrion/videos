@@ -21,26 +21,21 @@ func NewRole(conn *pgx.Conn) *Role {
 }
 
 func (r *Role) Insert(ctx context.Context, name string, permissions []internal.Permission) (internal.Role, error) {
-	tx, err := r.conn.Begin(ctx)
-	if err != nil {
-		return internal.Role{}, fmt.Errorf("Begin %w", err)
-	}
+	var (
+		role internal.Role
+		err  error
+	)
 
-	const sql = `INSERT INTO roles(name) VALUES ($1) RETURNING id`
+	err = transaction(ctx, r.conn, func(tx pgx.Tx) error {
+		rq := roleQueries{conn: tx}
 
-	var role internal.Role
-
-	err = transaction(ctx, tx, func() error {
-		row := tx.QueryRow(ctx, sql, &name)
-
-		var id uuid.UUID
-
-		if err = row.Scan(&id); err != nil {
+		role, err := rq.Insert(ctx, name)
+		if err != nil {
 			return fmt.Errorf("Insert %w", err)
 		}
 
 		for i, p := range permissions {
-			permission, err := r.insertPermissionTx(ctx, tx, id, p.Type)
+			permission, err := rq.InsertPermission(ctx, role.ID, p.Type)
 			if err != nil {
 				return fmt.Errorf("insertPermissionTx %w", err)
 			}
@@ -48,8 +43,6 @@ func (r *Role) Insert(ctx context.Context, name string, permissions []internal.P
 			permissions[i] = permission
 		}
 
-		role.ID = id
-		role.Name = name
 		role.Permissions = permissions
 
 		return nil
@@ -62,15 +55,15 @@ func (r *Role) Insert(ctx context.Context, name string, permissions []internal.P
 }
 
 func (r *Role) InsertPermission(ctx context.Context, roleID uuid.UUID, ptype internal.PermissionType) (internal.Permission, error) {
-	tx, err := r.conn.Begin(ctx)
-	if err != nil {
-		return internal.Permission{}, fmt.Errorf("Begin %w", err)
-	}
+	var (
+		permission internal.Permission
+		err        error
+	)
 
-	var permission internal.Permission
+	err = transaction(ctx, r.conn, func(tx pgx.Tx) error {
+		rq := roleQueries{conn: tx}
 
-	err = transaction(ctx, tx, func() error {
-		permission, err = r.insertPermissionTx(ctx, tx, roleID, ptype)
+		permission, err = rq.InsertPermission(ctx, roleID, ptype)
 		if err != nil {
 			return fmt.Errorf("insertPermission %w", err)
 		}
@@ -84,10 +77,31 @@ func (r *Role) InsertPermission(ctx context.Context, roleID uuid.UUID, ptype int
 	return permission, nil
 }
 
-func (r *Role) insertPermissionTx(ctx context.Context, tx pgx.Tx, roleID uuid.UUID, ptype internal.PermissionType) (internal.Permission, error) {
+type roleQueries struct {
+	conn DBTX
+}
+
+func (r *roleQueries) Insert(ctx context.Context, name string) (internal.Role, error) {
+	const sql = `INSERT INTO roles(name) VALUES ($1) RETURNING id`
+
+	row := r.conn.QueryRow(ctx, sql, &name)
+
+	var id uuid.UUID
+
+	if err := row.Scan(&id); err != nil {
+		return internal.Role{}, fmt.Errorf("Scan %w", err)
+	}
+
+	return internal.Role{
+		ID:   id,
+		Name: name,
+	}, nil
+}
+
+func (r *roleQueries) InsertPermission(ctx context.Context, roleID uuid.UUID, ptype internal.PermissionType) (internal.Permission, error) {
 	const sql = `INSERT INTO permissions(role_id, type) VALUES ($1, $2) RETURNING id`
 
-	row := tx.QueryRow(ctx, sql, roleID, &ptype)
+	row := r.conn.QueryRow(ctx, sql, roleID, &ptype)
 
 	var id uuid.UUID
 

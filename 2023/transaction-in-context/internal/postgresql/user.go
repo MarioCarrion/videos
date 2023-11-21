@@ -21,6 +21,16 @@ func NewUser(conn *pgx.Conn) *User {
 }
 
 func (u *User) Insert(ctx context.Context, name string) (internal.User, error) {
+	uq := userQueries{conn: u.conn}
+
+	return uq.Insert(ctx, name)
+}
+
+type userQueries struct {
+	conn DBTX
+}
+
+func (u *userQueries) Insert(ctx context.Context, name string) (internal.User, error) {
 	const sql = `INSERT INTO users(name) VALUES ($1) RETURNING id`
 
 	row := u.conn.QueryRow(ctx, sql, &name)
