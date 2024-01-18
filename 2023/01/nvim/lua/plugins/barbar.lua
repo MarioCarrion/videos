@@ -2,14 +2,18 @@ local setup, bufferline = pcall(require, "bufferline")
 if not setup then return end
 
 bufferline.setup({
-  closable = false, -- Enable/disable close button
-  clickable = false, -- Enables/disable clickable tabs
-  tabpages = true, -- Enable/disable current/total tabpages indicator (top right corner)
-  icons = "both", -- Enable/disable icons
+    clickable = false, -- Enables/disable clickable tabs
+    tabpages = true, -- Enable/disable current/total tabpages indicator (top right corner)
+    icons = {
+        button = '',
+        buffer_index = true,
+        filetype = {enabled = true},
+        visible = {modified = {buffer_number = false}}
+    }
 })
 
 local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
+local opts = {noremap = true, silent = true}
 
 -- Move to previous/next
 map('n', '<A-,>', '<Cmd>BufferPrevious<CR>', opts)
