@@ -1,6 +1,7 @@
 # neovim
 
-* [JetBrains font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip)
+* [JetBrains font](https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip): install
+JetBrainsMono Neerd Font Mono
 
 ## Install
 

@@ -5,26 +5,21 @@ vim.cmd([[
   nnoremap - :NvimTreeToggle<CR>
 ]])
 
--- local keymap = vim.keymap -- for conciseness
--- keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
-
--- vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
--- vim.opt.foldenable = false --                  " Disable folding at startup.
-
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 vim.opt.termguicolors = true
 
-local HEIGHT_RATIO = 0.8 -- You can change this
-local WIDTH_RATIO = 0.5 -- You can change this too
+local HEIGHT_RATIO = 0.8
+local WIDTH_RATIO = 0.5
 
 nvimtree.setup({
     disable_netrw = true,
     hijack_netrw = true,
     respect_buf_cwd = true,
+    hijack_cursor = true,
     sync_root_with_cwd = true,
+    update_focused_file = {enable = true, update_root = true},
     view = {
         relativenumber = true,
         float = {

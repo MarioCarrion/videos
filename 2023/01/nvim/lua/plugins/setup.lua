@@ -19,10 +19,15 @@ require("lazy").setup({
         "romgrk/barbar.nvim",
         dependencies = {
             "nvim-tree/nvim-web-devicons", "lewis6991/gitsigns.nvim"
-        }
+        },
+        init = function() vim.g.barbar_auto_setup = false end,
     },
     {"nvim-lualine/lualine.nvim"},
-    {"nvim-tree/nvim-tree.lua", dependencies = {"nvim-tree/nvim-web-devicons"}},
+    {
+        "nvim-tree/nvim-tree.lua",
+        dependencies = {"nvim-tree/nvim-web-devicons"},
+        tag = "v0.99",
+    },
     {"nvim-telescope/telescope-fzf-native.nvim", build = "make"},
     {
         "nvim-telescope/telescope.nvim",
@@ -33,11 +38,32 @@ require("lazy").setup({
     -- Development
     {
         "nvim-treesitter/nvim-treesitter",
-        build = ":TSUpdate"
+        tag = "v0.9.2",
+        build = ":TSUpdate",
     },
     {"nvim-treesitter/nvim-treesitter-textobjects"},
     {"rhysd/vim-clang-format"},
-    {"fatih/vim-go"},
+    {
+        "ray-x/go.nvim",
+        dependencies = { -- optional packages
+            "ray-x/guihua.lua",
+            "neovim/nvim-lspconfig",
+            "nvim-treesitter/nvim-treesitter",
+        },
+        event = {"CmdlineEnter"},
+        ft = {"go", 'gomod'},
+    },
+    {
+        "ray-x/navigator.lua",
+        requires = {
+            { "ray-x/guihua.lua", run = "cd lua/fzy && make" },
+            { "neovim/nvim-lspconfig" },
+        },
+    },
+    {
+        "ray-x/lsp_signature.nvim",
+        event = "VeryLazy",
+    },
     {"SirVer/ultisnips"},
     {"hrsh7th/cmp-nvim-lsp"},
     {"hrsh7th/nvim-cmp"},

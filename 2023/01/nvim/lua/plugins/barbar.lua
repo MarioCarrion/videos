@@ -1,7 +1,7 @@
-local setup, bufferline = pcall(require, "bufferline")
+local setup, barbar = pcall(require, "barbar")
 if not setup then return end
 
-bufferline.setup({
+barbar.setup({
     clickable = false, -- Enables/disable clickable tabs
     tabpages = true, -- Enable/disable current/total tabpages indicator (top right corner)
     icons = {
