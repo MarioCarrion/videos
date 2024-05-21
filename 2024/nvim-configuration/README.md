@@ -3,6 +3,8 @@
 * [YouTube Video](https://youtu.be/n5_WLgxwkU8)
 * [Blog post](https://mariocarrion.com/2024/05/20/neovim-migrating-to-lazy-and-go-nvim.html)
 
+❗️❗️This configuration works with Neovim **v0.10.0**❗️❗️
+
 ## Requirements
 
 * Install a patched font, my favorite is [JetBrains patched font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono).
