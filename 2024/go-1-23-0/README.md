@@ -1,7 +1,7 @@
 # Go 1.23: What is new?
 
 * [Video](https://youtu.be/EL4hg73mT2A)
-* [Blog Post](https://mariocarrion.com/2024/10/02/what-is-new-in-go-1-23.html)
+* [Blog Post](https://mariocarrion.com/2024/09/02/what-is-new-in-go-1-23.html)
 
 Go 1.23.0 was released on August 13th, 2024. This directory includes examples of some new features added in this release.
 
