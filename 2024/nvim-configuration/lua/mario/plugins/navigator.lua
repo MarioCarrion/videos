@@ -17,7 +17,24 @@ return {
         require("go").setup()
         require("navigator").setup({
             lsp_signature_help = true, -- enable ray-x/lsp_signature
-            lsp = {format_on_save = true}
+            lsp = {
+                format_on_save = true,
+                gopls = {
+                    settings = {
+                        gopls = {
+                            hints = {
+                                assignVariableTypes = false,
+                                compositeLiteralFields = true,
+                                compositeLiteralTypes = true,
+                                constantValues = true,
+                                functionTypeParameters = true,
+                                parameterNames = true,
+                                rangeVariableTypes = false
+                            }
+                        }
+                    }
+                }
+            }
         })
 
         vim.api.nvim_create_autocmd("FileType", {
@@ -25,13 +42,15 @@ return {
             callback = function(ev)
                 -- CTRL/control keymaps
                 vim.api
-                    .nvim_buf_set_keymap(0, "n", "<C-i>", ":GoImport<CR>", {})
+                    .nvim_buf_set_keymap(0, "n", "<C-i>", ":GoImports<CR>", {})
                 vim.api.nvim_buf_set_keymap(0, "n", "<C-b>", ":GoBuild %:h<CR>",
                                             {})
                 vim.api.nvim_buf_set_keymap(0, "n", "<C-t>", ":GoTestPkg<CR>",
                                             {})
                 vim.api.nvim_buf_set_keymap(0, "n", "<C-c>",
                                             ":GoCoverage -p<CR>", {})
+                vim.api.nvim_buf_set_keymap(0, "n", "<C-r>",
+                                            ":GoRun<CR>", {})
 
                 -- Opens test files
                 vim.api.nvim_buf_set_keymap(0, "n", "A",
