@@ -2,3 +2,4 @@
 
 * [Exported variables can be replaced](01-replaced-variables/)
 * [Test Dependencies](02-test-dependencies/)
+* [`switch` statement](03-switch-statement/)
