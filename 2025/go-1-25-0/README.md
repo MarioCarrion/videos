@@ -1,6 +1,6 @@
 # Go 1.25.0: What's new?
 
-* [Video](httpshttps://youtu.be/iK4evFHCzWw)
+* [Video](https://youtu.be/iK4evFHCzWw)
 
 Go **1.25.0** was released on _August 12th, 2025_. This directory includes examples of some new features added in this release.
 
